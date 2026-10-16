@@ -124,7 +124,7 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
   transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 .navbar.scrolled { background: rgba(250,245,238,.97); border-bottom-color: var(--border); box-shadow: 0 2px 20px rgba(100,40,60,.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: .5rem; min-width: 0; }
 
 .nav-logo { display: flex; align-items: center; gap: .5rem; }
 .nav-logo .crown { font-size: 1.55rem; color: var(--gold); filter: drop-shadow(0 1px 4px rgba(201,168,76,.4)); }
@@ -610,7 +610,7 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
 /* ============================================================
    FOOTER
    ============================================================ */
-.footer { background: linear-gradient(160deg,var(--brown),var(--charcoal)); color: var(--cream); }
+.footer { background: linear-gradient(160deg,var(--brown),var(--charcoal)); color: var(--cream); overflow: hidden; }
 .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 3rem; padding: 4.5rem 0 3.5rem; }
 .footer-logo { display: flex; align-items: center; gap: .55rem; margin-bottom: .9rem; }
 .footer-logo .crown { font-size: 1.9rem; color: var(--gold); filter: drop-shadow(0 2px 6px rgba(201,168,76,.5)); }
@@ -650,12 +650,15 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
    RESPONSIVE
    ============================================================ */
 
-/* --- Prevent any element from causing horizontal scroll --- */
-html, body {
+/* --- Prevent horizontal scroll on all screen sizes -------- */
+html {
+  overflow-x: hidden;
+}
+body {
   overflow-x: hidden;
   width: 100%;
+  position: relative;
 }
-* { max-width: 100%; }
 
 /* ---- Tablet landscape (≤1024px) ------------------------- */
 @media (max-width: 1024px) {
@@ -692,7 +695,7 @@ html, body {
   /* global padding */
   .section    { padding: 3rem 0; }
   .section-sm { padding: 2rem 0; }
-  .container  { padding: 0 1rem; }
+  .container  { padding: 0 1.1rem; }
 
   /* hero */
   .hero-inner        { padding: 2.5rem 0 2.5rem; }
@@ -733,7 +736,7 @@ html, body {
 
   /* price strip */
   .ps-divider   { display: none; }
-  .price-strip-inner { gap: 1.25rem; }
+  .price-strip-inner { gap: 1.25rem; flex-wrap: wrap; }
 
   /* info strip */
   .info-strip   { grid-template-columns: 1fr; gap: 1rem; }
@@ -746,12 +749,28 @@ html, body {
   .about-story-inner { gap: 2rem; }
   .contact-grid      { gap: 2rem; }
 
-  /* footer */
-  .footer-top    { grid-template-columns: 1fr; gap: 1.75rem; padding: 2.5rem 0 2rem; }
-  .footer-logo-main  { font-size: 1.2rem; }
-  .footer-col-title  { margin-bottom: .7rem; }
-  .footer-bottom-inner { flex-direction: column; text-align: center; gap: .4rem; }
+  /* footer — full reflow for mobile */
+  .footer-top    {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 2.5rem 1.1rem 2rem;
+  }
   .footer-bottom { padding: 1rem 0; }
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: .4rem;
+    padding: 0 1.1rem;
+  }
+  .footer-bottom p { font-size: .72rem; word-break: break-word; }
+  .footer-logo-main  { font-size: 1.2rem; letter-spacing: .08em; }
+  .footer-logo-sub   { letter-spacing: .12em; font-size: .56rem; }
+  .footer-col-title  { margin-bottom: .7rem; }
+  .footer-slogan     { font-size: 1.3rem; }
+  .footer-tagline    { font-size: .82rem; max-width: 100%; }
+  .footer-links li, .footer-links a { font-size: .84rem; }
+  .fc-item     { font-size: .82rem; gap: .5rem; }
+  .walkin-tag  { font-size: .66rem; }
 
   /* table — allow scroll */
   .table-wrap   { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -765,32 +784,53 @@ html, body {
 
 /* ---- Small phones (≤430px) ------------------------------ */
 @media (max-width: 430px) {
-  .container  { padding: 0 .85rem; }
+  .container  { padding: 0 .9rem; }
 
   /* hero text */
-  .hero-brand-main { font-size: clamp(2rem,11vw,2.8rem); }
-  .hero-slogan     { font-size: clamp(1.5rem,7.5vw,2.1rem); }
-  .hero-desc       { font-size: .88rem; }
+  .hero-brand-main { font-size: clamp(1.9rem,11vw,2.6rem); letter-spacing: .04em; }
+  .hero-slogan     { font-size: clamp(1.45rem,7.5vw,2rem); }
+  .hero-desc       { font-size: .86rem; }
+  .hero-brand-sub  { font-size: .66rem; letter-spacing: .1em; }
 
-  /* gallery stays 2 col but tighter */
-  .gal-prev-grid, .gallery-grid { gap: .45rem; }
+  /* page hero banners */
+  .page-hero { min-height: 42vh; padding: calc(var(--nav-h) + 2rem) 0 2.5rem; }
+  .page-hero-inner h1 { font-size: clamp(1.5rem,7vw,2.2rem); }
+
+  /* gallery */
+  .gal-prev-grid, .gallery-grid { gap: .4rem; }
 
   /* info cards single col on tiny screens */
   .info-cards-grid    { grid-template-columns: 1fr; }
   .placeholders-grid  { grid-template-columns: 1fr; }
 
   /* footer */
-  .footer-logo-main  { font-size: 1.1rem; letter-spacing: .08em; }
-  .footer-logo-sub   { letter-spacing: .14em; }
-  .footer-slogan     { font-size: 1.25rem; }
-  .fc-item           { font-size: .8rem; }
+  .footer-top        { padding: 2rem .9rem 1.75rem; }
+  .footer-logo-main  { font-size: 1.05rem; letter-spacing: .06em; }
+  .footer-logo-sub   { letter-spacing: .1em; font-size: .54rem; }
+  .footer-slogan     { font-size: 1.2rem; }
+  .footer-tagline    { font-size: .8rem; }
+  .fc-item           { font-size: .78rem; }
+  .footer-col-title  { font-size: .65rem; }
+  .footer-bottom-inner { padding: 0 .9rem; }
+  .footer-bottom p   { font-size: .68rem; }
 
-  /* lightbox nav closer to edge */
+  /* nav logo shrink */
+  .logo-main  { font-size: 1.1rem; }
+  .nav-logo .crown { font-size: 1.3rem; }
+
+  /* lightbox nav */
   .lb-nav.lb-prev { left: .35rem; }
   .lb-nav.lb-next { right: .35rem; }
-  .lb-nav         { width: 40px; height: 40px; font-size: 1.4rem; }
+  .lb-nav         { width: 38px; height: 38px; font-size: 1.3rem; }
 
   /* float button */
   .wa-float { bottom: 1rem; right: 1rem; width: 50px; height: 50px; }
   .wa-float svg { width: 26px; height: 26px; }
+
+  /* cta buttons full width */
+  .cta-actions .btn,
+  .hero-actions .btn { max-width: 100%; }
+
+  /* sec-header script */
+  .script { font-size: clamp(1.4rem,7vw,2rem); }
 }
