@@ -1,0 +1,310 @@
+/* ============================================================
+   BADISHI BEAUTY SALON — Global Styles
+   ============================================================ */
+
+/* --- CSS Variables / Design Tokens ----------------------- */
+:root {
+  /* Colour Palette */
+  --color-blush:       #f8dce8;
+  --color-rose:        #e8a0b4;
+  --color-rose-dark:   #c9607e;
+  --color-gold:        #c9a84c;
+  --color-gold-light:  #e8c97a;
+  --color-gold-pale:   #f5e9c8;
+  --color-cream:       #fdf6ef;
+  --color-ivory:       #faf5ee;
+  --color-white:       #ffffff;
+  --color-charcoal:    #2c1a1a;
+  --color-brown:       #4a2c2a;
+  --color-text:        #3a2020;
+  --color-text-light:  #7a5a5a;
+  --color-border:      #e8d5c4;
+
+  /* Typography */
+  --font-script:   'Great Vibes', cursive;
+  --font-serif:    'Cormorant Garamond', serif;
+  --font-sans:     'Jost', sans-serif;
+
+  /* Spacing */
+  --section-pad:   5rem 1.5rem;
+  --section-pad-sm: 3rem 1.25rem;
+
+  /* Border radius */
+  --radius-sm:  6px;
+  --radius-md:  14px;
+  --radius-lg:  28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 24px rgba(180, 100, 120, 0.10);
+  --shadow-card: 0 8px 32px rgba(100, 40, 60, 0.12);
+  --shadow-gold: 0 2px 16px rgba(201, 168, 76, 0.25);
+
+  /* Transitions */
+  --transition: 0.3s ease;
+}
+
+/* --- Reset / Base ----------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+}
+
+/* --- Typography ------------------------------------------ */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-brown);
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+h4 { font-size: 1.1rem; }
+
+p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+.script-heading {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--color-gold);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  display: block;
+  line-height: 1.1;
+}
+
+/* --- Buttons --------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  color: var(--color-white);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201, 168, 76, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-brown);
+  border: 1.5px solid var(--color-gold);
+}
+
+.btn-outline:hover {
+  background: var(--color-gold-pale);
+  transform: translateY(-2px);
+}
+
+.btn-rose {
+  background: linear-gradient(135deg, var(--color-rose-dark) 0%, var(--color-rose) 100%);
+  color: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-rose:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(200, 96, 126, 0.35);
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.btn-sm {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.78rem;
+}
+
+/* --- Section Layout -------------------------------------- */
+.section {
+  padding: var(--section-pad);
+}
+
+.section-sm {
+  padding: var(--section-pad-sm);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header .eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0.75rem;
+}
+
+.section-header p {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.divider-gold {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+  margin: 1rem auto 0;
+  border-radius: var(--radius-full);
+}
+
+/* --- Cards ----------------------------------------------- */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(100, 40, 60, 0.16);
+}
+
+/* --- Utility --------------------------------------------- */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.gap-1 { gap: 0.5rem; }
+
+.bg-cream  { background-color: var(--color-cream); }
+.bg-blush  { background-color: var(--color-blush); }
+.bg-ivory  { background-color: var(--color-ivory); }
+.bg-white  { background-color: var(--color-white); }
+.bg-brown  { background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-charcoal) 100%); }
+
+/* --- Placeholder image box ------------------------------- */
+.img-placeholder {
+  background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-gold-pale) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-rose-dark);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* --- Animations ------------------------------------------ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.fade-up   { animation: fadeUp 0.7s ease both; }
+.fade-in   { animation: fadeIn 0.6s ease both; }
+
+/* --- Responsive ------------------------------------------ */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 3.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 2.5rem 1rem;
+  }
+}

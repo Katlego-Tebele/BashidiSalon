@@ -1,0 +1,202 @@
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  background: linear-gradient(160deg, var(--color-brown) 0%, var(--color-charcoal) 100%);
+  color: var(--color-cream);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 3rem;
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+
+/* --- Brand ------------------------------------------------ */
+.footer__brand { }
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer__logo-crown {
+  font-size: 2rem;
+  color: var(--color-gold);
+  filter: drop-shadow(0 2px 6px rgba(201, 168, 76, 0.5));
+}
+
+.footer__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.footer__logo-main {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-white);
+}
+
+.footer__logo-sub {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-top: 2px;
+}
+
+.footer__slogan {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--color-gold-light);
+  margin-bottom: 0.6rem;
+  line-height: 1;
+}
+
+.footer__tagline {
+  font-size: 0.85rem;
+  color: rgba(253, 246, 239, 0.65);
+  line-height: 1.65;
+  max-width: 260px;
+  margin-bottom: 1.4rem;
+}
+
+.footer__wa-btn {
+  font-size: 0.8rem;
+}
+
+/* --- Columns ------------------------------------------------ */
+.footer__col-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  margin-bottom: 1.2rem;
+}
+
+.footer__col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer__col-links li,
+.footer__col-links a {
+  font-size: 0.88rem;
+  color: rgba(253, 246, 239, 0.72);
+  transition: color var(--transition);
+}
+
+.footer__col-links a:hover {
+  color: var(--color-gold-light);
+}
+
+/* --- Contact ------------------------------------------------ */
+.footer__col-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.footer__col-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: rgba(253, 246, 239, 0.72);
+  line-height: 1.55;
+}
+
+.footer__col-contact a {
+  color: rgba(253, 246, 239, 0.85);
+  transition: color var(--transition);
+}
+
+.footer__col-contact a:hover {
+  color: var(--color-gold-light);
+}
+
+.footer__contact-icon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.footer__wa-tag {
+  font-size: 0.75rem;
+  color: rgba(253, 246, 239, 0.5);
+}
+
+.footer__placeholder {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.footer__walkin {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+}
+
+/* --- Bottom bar ------------------------------------------ */
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.25rem 1.5rem;
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer__bottom p {
+  font-size: 0.78rem;
+  color: rgba(253, 246, 239, 0.45);
+}
+
+.footer__bottom-right {
+  color: rgba(201, 168, 76, 0.6) !important;
+}
+
+/* --- Responsive ------------------------------------------ */
+@media (max-width: 960px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.25rem 2.5rem;
+  }
+  .footer__bottom-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

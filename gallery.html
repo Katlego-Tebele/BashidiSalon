@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Badishi Beauty Salon | Randburg</title>
+  <meta name="description" content="Browse Badishi Beauty Salon's gallery of wigs, hairstyles, nail art and pedicures in Randburg, Johannesburg." />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Badishi Beauty Salon — Home">
+        <span class="crown" aria-hidden="true">♛</span>
+        <span class="logo-text">
+          <span class="logo-main">BADISHI</span>
+          <span class="logo-sub">Beauty Salon</span>
+        </span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="hair.html">Hair &amp; Beauty Supply</a></li>
+          <li><a href="services.html">Salon Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About &amp; Contact</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/27761595942?text=Hello%20Badishi%20Beauty%20Salon%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20share%20your%20available%20dates%20and%20times."
+         target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm nav-cta">Book Now</a>
+      <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav id="mobileDrawer" class="nav-drawer" aria-label="Mobile navigation">
+    <ul class="drawer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="hair.html">Hair &amp; Beauty Supply</a></li>
+      <li><a href="services.html">Salon Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About &amp; Contact</a></li>
+      <li><a href="https://wa.me/27761595942?text=Hello%20Badishi%20Beauty%20Salon%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20share%20your%20available%20dates%20and%20times."
+             target="_blank" rel="noopener noreferrer" class="btn btn-gold drawer-book">📲 Book on WhatsApp</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero page-hero-dark" aria-label="Gallery">
+      <div class="container page-hero-inner">
+        <span class="eyebrow eyebrow-light">Our Work</span>
+        <span class="script" style="color:var(--gold-light); font-size:3rem;">Gallery</span>
+        <h1>Beauty in Every Detail</h1>
+        <p>Browse our wigs, nail art, pedicures, and beautiful looks. Click any image to view full size.</p>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" aria-label="Photo gallery">
+      <div class="container">
+        <div class="sec-header reveal">
+          <span class="eyebrow">Our Portfolio</span>
+          <h2>Our Beauty Work</h2>
+          <p>New photos added regularly. Click any image to open it. Use arrow keys to navigate.</p>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Filters -->
+        <div class="gal-filters" role="tablist" aria-label="Filter gallery by category">
+          <button class="gal-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            All Work <span class="gal-count">7</span>
+          </button>
+          <button class="gal-filter-btn" data-filter="wigs" role="tab" aria-selected="false">
+            Wigs &amp; Hair <span class="gal-count">4</span>
+          </button>
+          <button class="gal-filter-btn" data-filter="nails" role="tab" aria-selected="false">
+            Nails &amp; Pedicure <span class="gal-count">2</span>
+          </button>
+          <button class="gal-filter-btn" data-filter="looks" role="tab" aria-selected="false">
+            Beauty Looks <span class="gal-count">1</span>
+          </button>
+        </div>
+
+        <!-- Grid -->
+        <div class="gallery-grid" role="list">
+
+          <div class="gal-item" data-category="wigs" data-label="Curly Frontal Wig" role="listitem"
+               aria-label="View: Curly Frontal Wig — click to enlarge">
+            <img src="assets/images/wigs/wig-curly-01.jpg"
+                 alt="13x4 Curly Frontal Wig style 1 — Badishi Beauty Supply" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">👑</span><span>Wig Photo 1</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Curly Frontal Wig</span>
+            </div>
+          </div>
+
+          <div class="gal-item" data-category="wigs" data-label="Curly Frontal Wig" role="listitem"
+               aria-label="View: Curly Frontal Wig style 2 — click to enlarge">
+            <img src="assets/images/wigs/wig-curly-02.jpg"
+                 alt="13x4 Curly Frontal Wig style 2 — Badishi Beauty Supply" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">👑</span><span>Wig Photo 2</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Curly Frontal Wig</span>
+            </div>
+          </div>
+
+          <div class="gal-item" data-category="wigs" data-label="Curly Frontal Wig" role="listitem"
+               aria-label="View: Curly Frontal Wig style 3 — click to enlarge">
+            <img src="assets/images/wigs/wig-curly-03.jpg"
+                 alt="13x4 Curly Frontal Wig style 3 — Badishi Beauty Supply" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">👑</span><span>Wig Photo 3</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Curly Frontal Wig</span>
+            </div>
+          </div>
+
+          <div class="gal-item" data-category="wigs" data-label="Curly Frontal Wig" role="listitem"
+               aria-label="View: Curly Frontal Wig style 4 — click to enlarge">
+            <img src="assets/images/wigs/wig-curly-04.jpg"
+                 alt="13x4 Curly Frontal Wig style 4 — Badishi Beauty Supply" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">👑</span><span>Wig Photo 4</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Curly Frontal Wig</span>
+            </div>
+          </div>
+
+          <div class="gal-item" data-category="nails" data-label="Short Nail Set" role="listitem"
+               aria-label="View: Short nail set — click to enlarge">
+            <img src="assets/images/nails/nail-art-01.jpg"
+                 alt="Short nail set by Badishi Beauty Salon" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">💅</span><span>Nail Art</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Short Nail Set</span>
+            </div>
+          </div>
+
+          <div class="gal-item" data-category="nails" data-label="Pedicure" role="listitem"
+               aria-label="View: Pedicure — click to enlarge">
+            <img src="assets/images/nails/pedicure-01.jpg"
+                 alt="Pedicure treatment at Badishi Beauty Salon" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">🦶</span><span>Pedicure</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Pedicure</span>
+            </div>
+          </div>
+
+          <div class="gal-item" data-category="looks" data-label="Badishi Beauty Look" role="listitem"
+               aria-label="View: Badishi beauty look — click to enlarge">
+            <img src="assets/images/hero-girl.jpg"
+                 alt="Badishi Beauty Salon featured look" loading="lazy"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="img-ph" style="display:none;position:absolute;inset:0;">
+              <span class="ph-icon">✨</span><span>Beauty Look</span>
+            </div>
+            <div class="gal-overlay" aria-hidden="true">
+              <span class="gal-overlay-icon">🔍</span>
+              <span class="gal-overlay-label">Beauty Look</span>
+            </div>
+          </div>
+
+        </div><!-- /gallery-grid -->
+
+        <p class="gal-empty" style="display:none;">No images in this category yet. Check back soon!</p>
+
+        <!-- Add photos note -->
+        <div class="section-sm">
+          <div class="add-note-inner reveal">
+            <span class="note-icon" aria-hidden="true">📸</span>
+            <div>
+              <h4>Growing Gallery</h4>
+              <p>New photos are added regularly. To order a wig or book a service you see here, WhatsApp us directly.</p>
+            </div>
+            <a href="https://wa.me/27761595942?text=Hello%20Badishi%20Beauty%20Salon%2C%20I%20saw%20your%20gallery%20and%20I%20would%20like%20to%20enquire%20about%20your%20services."
+               target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">📲 WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" aria-label="Close image viewer">✕</button>
+    <button class="lb-nav lb-prev" aria-label="Previous image">&#8249;</button>
+    <div class="lb-content">
+      <img class="lb-img" src="" alt="" />
+      <div class="lb-caption">
+        <span class="lb-label"></span>
+        <span class="lb-counter"></span>
+      </div>
+    </div>
+    <button class="lb-nav lb-next" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="crown" aria-hidden="true">♛</span>
+          <span class="logo-text">
+            <span class="footer-logo-main">BADISHI</span>
+            <span class="footer-logo-sub">Beauty Salon</span>
+          </span>
+        </div>
+        <p class="footer-slogan">Your Hair, Your Crown.</p>
+        <p class="footer-tagline">Premium wigs, hairstyling, nail services &amp; pedicures in Randburg.</p>
+        <a href="https://wa.me/27761595942?text=Hello%20Badishi%20Beauty%20Salon%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20share%20your%20available%20dates%20and%20times."
+           target="_blank" rel="noopener noreferrer" class="btn btn-wa btn-sm">📲 Book on WhatsApp</a>
+      </div>
+      <div>
+        <span class="footer-col-title">Quick Links</span>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="hair.html">Hair &amp; Beauty Supply</a></li>
+          <li><a href="services.html">Salon Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About &amp; Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Our Services</span>
+        <ul class="footer-links">
+          <li>Hairstyling</li><li>Frontal Wigs</li><li>Hair Products</li>
+          <li>Nail Services</li><li>Pedicures</li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact Us</span>
+        <ul class="footer-contact">
+          <li class="fc-item"><span class="fc-icon" aria-hidden="true">📍</span><span>Co.Space Entrepreneur Village,<br>Randburg, Johannesburg, SA</span></li>
+          <li class="fc-item"><span class="fc-icon" aria-hidden="true">📲</span><a href="https://wa.me/27761595942" target="_blank" rel="noopener noreferrer">076 159 5942 <span class="fc-small">(Salon)</span></a></li>
+          <li class="fc-item"><span class="fc-icon" aria-hidden="true">📞</span><span>060 123 4567 <span class="fc-small">(Beauty Supply)</span></span></li>
+        </ul>
+        <span class="walkin-tag">Walk-ins Welcome</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© <span id="year"></span> Badishi Beauty Salon &amp; Beauty Supply. All rights reserved.</p>
+        <p class="made-with">Made with ♥ for beauty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/27761595942?text=Hello%20Badishi%20Beauty%20Salon%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20share%20your%20available%20dates%20and%20times."
+     target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat on WhatsApp">
+    <span class="wa-tooltip">Book on WhatsApp</span>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+/* ============================================================
+   Hair & Beauty Supply Page
+   ============================================================ */
+
+/* ---- Hero ----------------------------------------------- */
+.hair-hero {
+  min-height: 60vh;
+  background: linear-gradient(160deg, var(--color-brown) 0%, #6a2a3a 60%, var(--color-charcoal) 100%);
+  display: flex;
+  align-items: center;
+  padding: calc(72px + 3rem) 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hair-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 80% 50%, rgba(201, 168, 76, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 20% 30%, rgba(232, 160, 180, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hair-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.eyebrow-light {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+}
+
+.hair-hero__title {
+  font-family: var(--font-serif);
+  color: var(--color-white);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.hair-hero__sub {
+  color: rgba(253, 246, 239, 0.72);
+  max-width: 500px;
+  margin-bottom: 0.75rem;
+}
+
+/* ---- Info Strip ----------------------------------------- */
+.hair-info-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.hair-info-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hair-info-strip__icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.hair-info-strip__item div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.hair-info-strip__item strong {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+}
+
+.hair-info-strip__item span {
+  font-size: 0.88rem;
+  color: var(--color-text-light);
+}
+
+/* ---- Filters -------------------------------------------- */
+.hair-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.hair-filter-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.hair-filter-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.hair-filter-btn.active {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  border-color: var(--color-gold);
+  color: #fff;
+  box-shadow: var(--shadow-gold);
+}
+
+/* ---- Wig Grid ------------------------------------------- */
+.hair-wigs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---- Wig Card ------------------------------------------- */
+.wig-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.wig-card__img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.wig-card:hover .wig-card__img {
+  transform: scale(1.06);
+}
+
+.wig-card__img-fallback {
+  height: 300px;
+}
+
+.wig-card__length-tag {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-charcoal) 100%);
+  color: var(--color-gold-light);
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--radius-full);
+}
+
+.wig-card__body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wig-card__title {
+  font-size: 1rem;
+  color: var(--color-brown);
+  margin-bottom: 0.1rem;
+}
+
+.wig-card__desc {
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.wig-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.wig-card__price {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+/* ---- Price Table ---------------------------------------- */
+.hair-price-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.5rem;
+}
+
+.hair-price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.hair-price-table thead tr {
+  background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-charcoal) 100%);
+}
+
+.hair-price-table th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  color: var(--color-gold-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hair-price-table td {
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  vertical-align: middle;
+}
+
+.hair-price-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.hair-price-table tbody tr:nth-child(even) {
+  background: var(--color-ivory);
+}
+
+.hair-price-table tbody tr:hover {
+  background: var(--color-blush);
+}
+
+.hair-price-table__price {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.hair-price-note {
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ---- CTA ------------------------------------------------- */
+.hair-cta {
+  padding: 5rem 1.5rem;
+}
+
+/* ---- Responsive ----------------------------------------- */
+@media (max-width: 960px) {
+  .hair-info-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hair-wigs__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .hair-wigs__grid {
+    grid-template-columns: 1fr;
+  }
+  .hair-info-strip {
+    grid-template-columns: 1fr;
+  }
+  .wig-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
