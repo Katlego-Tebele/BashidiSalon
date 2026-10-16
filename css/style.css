@@ -307,11 +307,16 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
 /* ============================================================
    HOMEPAGE SECTIONS
    ============================================================ */
+/* Services overview — image cards */
 .services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-.svc-card { padding: 2rem 1.4rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.svc-card { display: flex; flex-direction: column; padding: 0; text-align: left; align-items: stretch; }
+.svc-card-img-wrap { overflow: hidden; flex-shrink: 0; }
+.svc-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform .55s; display: block; }
+.svc-card:hover .svc-card-img { transform: scale(1.06); }
+.svc-card-body { padding: 1.25rem 1.25rem 1.4rem; display: flex; flex-direction: column; gap: .4rem; flex: 1; }
+.svc-card-body h3 { font-size: 1.05rem; margin-bottom: .15rem; }
+.svc-card-body p  { font-size: .85rem; flex: 1; margin-bottom: .75rem; }
 .svc-icon { font-size: 2.4rem; margin-bottom: 1rem; }
-.svc-card h3 { font-size: 1.1rem; margin-bottom: .4rem; }
-.svc-card p  { font-size: .86rem; flex: 1; margin-bottom: 1rem; }
 
 .wigs-grid   { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
 .wig-img-wrap { overflow: hidden; }
@@ -645,6 +650,7 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
    ============================================================ */
 @media (max-width: 1024px) {
   .services-grid   { grid-template-columns: repeat(2,1fr); }
+  .svc-card-img    { height: 180px; }
   .footer-top      { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-top .footer-brand { grid-column: 1/-1; }
   .info-strip      { grid-template-columns: repeat(2,1fr); }
