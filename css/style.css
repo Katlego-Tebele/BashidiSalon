@@ -41,8 +41,8 @@
 
 /* --- Reset ----------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-sans); background: var(--ivory); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+body { font-family: var(--font-sans); background: var(--ivory); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img  { max-width: 100%; height: auto; display: block; }
 a    { color: inherit; text-decoration: none; }
 ul   { list-style: none; }
@@ -191,16 +191,25 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
 
 /* ============================================================
    HERO — full-screen background image (KAT.png)
+   Mobile-first, no-clip from 320 px upward.
    ============================================================ */
+
+/* -- Outer shell ------------------------------------------ */
 .hero {
-  min-height: 100vh;
   position: relative;
+  /* use width/max-width, not just min-height, so the flex
+     child never escapes the viewport */
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;   /* top-align so tall content scrolls naturally */
   padding-top: var(--nav-h);
   overflow: hidden;
 }
 
+/* -- Background photo ------------------------------------- */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -210,132 +219,222 @@ p  { color: var(--text-light); line-height: 1.8; font-size: .97rem; }
   background-repeat: no-repeat;
   z-index: 0;
 }
-
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(20, 8, 12, 0.75) 0%,
-    rgba(74, 44, 42, 0.55) 55%,
-    rgba(20, 8, 10, 0.28) 100%
+    rgba(20,8,12,.80) 0%,
+    rgba(74,44,42,.58) 50%,
+    rgba(20,8,10,.25) 100%
   );
 }
 
+/* -- Inner wrapper ----------------------------------------
+   padding creates the horizontal safe zone.
+   width: 100% + box-sizing: border-box = exact viewport width.
+   No max-width here — that goes on .hero-content only.
+------------------------------------------------------------- */
 .hero-inner {
   position: relative;
   z-index: 1;
-  padding: 4rem 1.5rem 3rem;
   width: 100%;
+  box-sizing: border-box;
+  padding: 3rem 1.25rem 3.5rem;
+}
+
+/* -- Content column ---------------------------------------
+   width: 100% fills the padding box of .hero-inner.
+   max-width caps it wide screens.
+------------------------------------------------------------- */
+.hero-content {
+  width: 100%;
+  max-width: 600px;
   box-sizing: border-box;
 }
 
-.hero-content {
-  width: 100%;
-  max-width: 640px;
-  overflow: hidden;
-}
-
-.hero-brand {
-  margin: .3rem 0 .4rem;
-  width: 100%;
-  overflow: hidden;
-}
-
-.hero-brand-main {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 10vw, 6rem);
-  font-weight: 600;
-  letter-spacing: .06em;
-  line-height: 1.1;
-  display: block;
-  color: #fff;
-  text-shadow: 0 2px 24px rgba(0,0,0,.5);
-  word-break: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-}
-
-.hero-brand-sub {
+/* -- Eyebrow ---------------------------------------------- */
+.hero-eyebrow {
   display: block;
   font-family: var(--font-sans);
-  font-size: clamp(.7rem, 2.8vw, 1rem);
-  font-weight: 400;
-  letter-spacing: .04em;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--gold-light);
-  margin-top: .3rem;
+  margin: 0 0 .4rem;
+}
+
+/* -- Headline (h1) ----------------------------------------
+   font-size: inherit resets the global h1 rule so the
+   child spans control their own sizes.
+------------------------------------------------------------- */
+.hero-title {
+  font-size: inherit;          /* override global h1 clamp */
+  line-height: 1;
+  margin: 0 0 .85rem;
+}
+
+/* BADISHI — purely pixel-based on mobile to prevent any
+   vw overflow on 320 px where 1vw = 3.2 px               */
+.hero-title-main {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 2.25rem;          /* 36 px — safe on 320 px   */
+  letter-spacing: .04em;
+  line-height: 1.0;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0,0,0,.5);
+}
+
+/* Beauty Salon & Beauty Supply */
+.hero-title-sub {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-top: .45rem;
+  line-height: 1.45;
   word-break: break-word;
   overflow-wrap: break-word;
-  max-width: 100%;
 }
 
+/* Your Hair, Your Crown.
+   Script glyphs are wider than their em → keep font-size
+   small enough that the full string fits in ~292 px        */
 .hero-slogan {
-  font-family: var(--font-script);
-  font-size: clamp(1.6rem, 6vw, 3.2rem);
-  color: var(--gold-light);
   display: block;
-  margin-bottom: 1.1rem;
-  line-height: 1.2;
+  font-family: var(--font-script);
+  font-size: 1.55rem;          /* 24.8 px — fits on 320 px */
+  color: var(--gold-light);
+  line-height: 1.3;
+  margin: 0 0 .9rem;
   text-shadow: 0 2px 16px rgba(0,0,0,.35);
-  max-width: 100%;
+}
+
+/* -- Description ------------------------------------------ */
+.hero-desc {
+  font-size: .88rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,.88);
+  margin: 0 0 1.6rem;
+  word-break: break-word;
   overflow-wrap: break-word;
 }
 
-.hero-desc {
-  font-size: clamp(.88rem, 2.5vw, 1.05rem);
-  width: 100%;
-  max-width: 480px;
-  margin-bottom: 2rem;
-  color: rgba(255,255,255,.88);
-  line-height: 1.8;
-}
-
+/* -- Buttons: stacked full-width on mobile ---------------- */
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: .75rem;
-  margin-bottom: 1.75rem;
+  flex-direction: column;
+  gap: .65rem;
+  margin-bottom: 1.4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hero-actions .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  /* Tighter spacing on mobile to prevent overflow at 320px */
+  padding: .75rem 1rem;
+  font-size: .76rem;
+  letter-spacing: .04em;
 }
 
+/* White-border outline for hero (dark overlay bg) */
+.btn-hero-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.5);
+}
+.btn-hero-outline:hover {
+  background: rgba(255,255,255,.12);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* -- Badges ----------------------------------------------- */
 .hero-badges {
   display: flex;
   flex-wrap: wrap;
-  gap: .4rem;
+  gap: .45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
-
 .badge {
-  font-size: .68rem;
+  font-family: var(--font-sans);
+  font-size: .66rem;
   font-weight: 500;
   color: #fff;
   background: rgba(255,255,255,.15);
   border: 1px solid rgba(255,255,255,.35);
   border-radius: var(--radius-pill);
-  padding: .25rem .7rem;
+  padding: .28rem .7rem;
   backdrop-filter: blur(6px);
   white-space: nowrap;
 }
 
-.hero-img-wrap { display: none; }
-
-.img-badge {
-  position: absolute; bottom: -1.2rem; right: -0.8rem; z-index: 2;
-  background: linear-gradient(135deg,var(--gold),var(--gold-light));
-  color: #fff; border-radius: var(--radius-pill);
-  padding: .48rem 1.1rem; display: flex; align-items: center; gap: .4rem;
-  font-family: var(--font-serif); font-size: .92rem; font-weight: 600;
-  box-shadow: var(--shadow-gold);
-}
-
-.scroll-hint { position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%); z-index: 1; }
+/* -- Scroll hint: hidden on mobile so it never overlaps --- */
+.scroll-hint { display: none; }
 .scroll-hint span {
   display: block; width: 22px; height: 22px;
   border-right: 2px solid rgba(255,255,255,.65);
   border-bottom: 2px solid rgba(255,255,255,.65);
-  transform: rotate(45deg); animation: bounce 1.5s ease infinite; opacity: .75;
+  transform: rotate(45deg);
+  animation: bounce 1.5s ease infinite;
+  opacity: .75;
 }
-@keyframes bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(6px); } }
+@keyframes bounce {
+  0%,100% { transform: rotate(45deg) translateY(0); }
+  50%      { transform: rotate(45deg) translateY(6px); }
+}
+
+/* -- ≥ 480 px: slightly larger type ----------------------- */
+@media (min-width: 480px) {
+  .hero-inner        { padding-left: 1.75rem; padding-right: 1.75rem; }
+  .hero-title-main   { font-size: clamp(2.25rem, 8vw, 4rem); }
+  .hero-slogan       { font-size: clamp(1.55rem, 5.5vw, 2.2rem); }
+}
+
+/* -- ≥ 640 px: side-by-side buttons, scroll hint, more space */
+@media (min-width: 640px) {
+  .hero {
+    align-items: center;       /* re-centre vertically at wider breakpoint */
+  }
+  .hero-inner        { padding: 4rem 2rem 4rem; }
+  .hero-title-main   { font-size: clamp(2.8rem, 7vw, 5rem); }
+  .hero-slogan       { font-size: clamp(1.8rem, 4.5vw, 2.8rem); }
+  .hero-desc         { font-size: .95rem; }
+  .hero-actions      { flex-direction: row; flex-wrap: wrap; width: auto; gap: .85rem; }
+  .hero-actions .btn { 
+    width: auto;
+    padding: .82rem 2rem;
+    font-size: .82rem;
+    letter-spacing: .08em;
+  }
+  .scroll-hint {
+    display: block;
+    position: absolute; bottom: 1.8rem; left: 50%;
+    transform: translateX(-50%); z-index: 1;
+  }
+}
+
+/* -- ≥ 960 px: large display headline --------------------- */
+@media (min-width: 960px) {
+  .hero-inner      { padding: 5rem 2rem 4.5rem; }
+  .hero-title-main { font-size: clamp(3.5rem, 6vw, 6rem); letter-spacing: .06em; }
+  .hero-title-sub  { font-size: .82rem; letter-spacing: .12em; }
+  .hero-slogan     { font-size: clamp(2.2rem, 3.5vw, 3.2rem); }
+  .hero-desc       { font-size: 1.02rem; }
+}
 
 /* ============================================================
    HOMEPAGE SECTIONS
@@ -724,11 +823,6 @@ body {
   .section-sm { padding: 2rem 0; }
   .container  { padding: 0 1.1rem; }
 
-  /* hero — font sizes already scale via clamp; just control spacing */
-  .hero-inner        { padding: 2rem 0 2.5rem; }
-  .hero-actions      { flex-direction: column; align-items: stretch; gap: .7rem; }
-  .hero-actions .btn { width: 100%; justify-content: center; }
-
   /* section headings */
   .sec-header { margin-bottom: 2rem; }
 
@@ -805,12 +899,6 @@ body {
 @media (max-width: 430px) {
   .container  { padding: 0 .9rem; }
 
-  /* hero text */
-  .hero-brand-main { font-size: clamp(1.9rem,11vw,2.6rem); letter-spacing: .04em; }
-  .hero-slogan     { font-size: clamp(1.45rem,7.5vw,2rem); }
-  .hero-desc       { font-size: .86rem; }
-  .hero-brand-sub  { font-size: .66rem; letter-spacing: .1em; }
-
   /* page hero banners */
   .page-hero { min-height: 42vh; padding: calc(var(--nav-h) + 2rem) 0 2.5rem; }
   .page-hero-inner h1 { font-size: clamp(1.5rem,7vw,2.2rem); }
@@ -847,8 +935,7 @@ body {
   .wa-float svg { width: 26px; height: 26px; }
 
   /* cta buttons full width */
-  .cta-actions .btn,
-  .hero-actions .btn { max-width: 100%; }
+  .cta-actions .btn { max-width: 100%; }
 
   /* sec-header script */
   .script { font-size: clamp(1.4rem,7vw,2rem); }
